@@ -15,10 +15,13 @@ public class SecurityConfig {
         return httpSecurity
                 .cors(c -> c.disable())
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/api/**").permitAll()
+                        auth.requestMatchers("/api/").permitAll()
                                 .anyRequest().authenticated()
                 )
-                .formLogin(form -> form.disable())
+//                .formLogin(form -> form
+//                        .loginPage("/login").permitAll()
+//                )
+//                .logout(t -> t.permitAll())
                 .build();
     }
 }
